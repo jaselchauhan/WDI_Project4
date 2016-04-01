@@ -1,0 +1,23 @@
+{
+  "name": "frontend",
+  "homepage": "https://github.com/jaselchauhan/WDI_Project4",
+  "authors": [
+    "Jasel Chauhan <jasel.chauhan@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.5.3",
+    "bootstrap": "^3.3.6"
+  }
+}
