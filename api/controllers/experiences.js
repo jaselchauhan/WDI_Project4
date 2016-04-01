@@ -1,4 +1,4 @@
-var experience = require('../models/experience');
+var Experience = require('../models/experience');
 
 function experiencesIndex(req, res){
   Experience.find(function(err, experiences){
