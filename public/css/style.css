@@ -6,3 +6,7 @@ body {
   height:250px;
   width:250px;
 }
+
+body div h1 {
+  text-align: center;
+}

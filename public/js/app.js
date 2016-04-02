@@ -11,6 +11,10 @@ function Router($stateProvider, $urlRouterProvider) {
     .state('about', {
     url: '/about',
     templateUrl: 'about.html'
+  })
+  .state('experiences', {
+  url: '/experiences',
+  templateUrl: 'experiences.html'
   });
 
   $urlRouterProvider.otherwise('/');

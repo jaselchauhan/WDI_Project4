@@ -18,11 +18,23 @@
 
 <body ng-app="wdiproject4">
 
+  <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">wdi project four</a>
+    </div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a ui-sref-active="active" ui-sref="about">about</a></li>
+        <li><a ui-sref-active="active" ui-sref="experiences">experiences</a></li>
+      </ul>
+    </div>
+</nav>
+
+
   <div class="container-fluid">
 
     <h1>hello from index!</h1>
-    <a ui-sref-active="active" ui-sref="about">About</a>
-
 
     <section ng-controller="UsersController as users">
       <div class="row">
@@ -46,16 +58,7 @@
     </div>
     </section>
 
-    <section ng-controller="ExperiencesController as experiences">
-      <div class="row">
-      <hr>
-      <h2> event information</h2>
-      <li ng-repeat="experience in experiences.all">
-        <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
-        <h5> {{ experience.lat }} : {{ experience.lng }}</h5>
-      </li>
-    </div>
-    </section>
+
 
     <main ui-view>
 

@@ -1,0 +1,10 @@
+<section ng-controller="ExperiencesController as experiences">
+  <div class="row">
+  <hr>
+  <h2> event information</h2>
+  <li ng-repeat="experience in experiences.all">
+    <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
+    <h5> {{ experience.lat }} : {{ experience.lng }}</h5>
+  </li>
+</div>
+</section>
