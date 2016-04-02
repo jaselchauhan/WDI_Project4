@@ -1,6 +1,7 @@
 angular.module('wdiproject4')
   .controller('UsersController', UsersController);
 
+
 UsersController.$inject = ['$resource'];
 
 function UsersController($resource) {
@@ -12,11 +13,9 @@ function UsersController($resource) {
 
   this.all = User.query();
 
-
   // show a clicked user
    this.selectUser = function(user) {
      self.selectedUser = User.get({id: user._id});
    };
-
 
 }

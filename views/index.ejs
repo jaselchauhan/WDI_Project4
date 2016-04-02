@@ -27,6 +27,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a ui-sref-active="active" ui-sref="about">about</a></li>
         <li><a ui-sref-active="active" ui-sref="experiences">experiences</a></li>
+        <li><a ui-sref-active="active" ui-sref="users">users</a></li>
       </ul>
     </div>
 </nav>
@@ -34,29 +35,8 @@
 
   <div class="container-fluid">
 
-    <h1>hello from index!</h1>
+    <h1>enter project name here</h1>
 
-    <section ng-controller="UsersController as users">
-      <div class="row">
-        <div class="col-xs-12 col-md-8">
-        <ul id="users">
-          <li ng-repeat="user in users.all" data-id="{{user._id}" ng-click="users.selectUser(user)" }>
-            <h4> {{ user.username }} </h4>
-            <h5> {{ user.email }}</h5>
-          </li>
-        </ul>
-      </div>
-
-<div class="col-xs-12 col-md-4">
-        <div ng-show="users.selectedUser">
-          <hr>
-          <h3>{{ users.selectedUser.name }} email address is {{ users.selectedUser.email }}</h3>
-          <img class="userPic" ng-src="{{ users.selectedUser.picture }}" alt="userpicture" />
-        </div>
-
-      </div>
-    </div>
-    </section>
 
 
 

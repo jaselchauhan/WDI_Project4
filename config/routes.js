@@ -15,9 +15,9 @@ router.route('/users/:id')
 
 
 router.route('/experiences')
-  .get(experiencesController.index);
+  .post(experiencesController.query);
 
-router.route('/experiences/:id')
-  .get(experiencesController.getExperience);
+// router.route('/experiences/:id')
+//   .get(experiencesController.getExperience);
 
 module.exports = router;

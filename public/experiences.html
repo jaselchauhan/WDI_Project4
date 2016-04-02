@@ -1,4 +1,34 @@
 <section ng-controller="ExperiencesController as experiences">
+
+  <form class="search" ng-submit='experiences.getExperiences()'>
+    <div>
+      <label for="search-location">where do you want to go?</label>
+      <input type="text" id="search-location" placeholder="London" ng-model='experiences.queryData.city'>
+    </div>
+
+    <div>
+      <label for="search-from">From which date</label>
+      <input type="text" id="search-from" placeholder="01/01/2017" ng-model='experiences.queryData.start'>
+    </div>
+
+    <div>
+      <label for="search-to">till which date</label>
+      <input type="text" id="search-to" placeholder="03/01/2017" ng-model='experiences.queryData.end'>
+    </div>
+
+    <div>
+      <input type="submit" value="find your festival">
+    </div>
+  </form>
+
+  <div class="searchResults">
+    <li ng-repeat="experience in experiences.all">
+      <h4> {{ experience }}</h4>
+    </li>
+  </div>
+
+
+  <!--
   <div class="row">
   <hr>
   <h2> event information</h2>
@@ -6,5 +36,12 @@
     <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
     <h5> {{ experience.lat }} : {{ experience.lng }}</h5>
   </li>
-</div>
+
+
+<map center="main.mapCenter" markers="main.mapMarkers">
+
+
+
+
+</div> -->
 </section>

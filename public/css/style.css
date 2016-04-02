@@ -1,5 +1,6 @@
 body {
-
+background-color: #222222;
+color: #dedede;
 }
 
 .userPic{
@@ -9,4 +10,9 @@ body {
 
 body div h1 {
   text-align: center;
+}
+
+.google-map{
+  height:100vh;
+  width:100%;
 }
