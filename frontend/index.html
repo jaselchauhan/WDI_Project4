@@ -6,6 +6,8 @@
   <title>wdi project four</title>
   <script type="text/javascript" src="js/vendor/angular/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular-resource.js"></script>
+  <script src="js/vendor/angular-ui-router/release/angular-ui-router.min.js"></script>
+
   <script src="js/app.js"></script>
   <script src="js/controllers/users.js"></script>
   <script src="js/controllers/experiences.js"></script>
@@ -15,32 +17,50 @@
 </head>
 
 <body ng-app="wdiproject4">
-  <h1>hello from index!</h1>
-  <section ng-controller="UsersController as users">
 
-    <ul id="users">
-      <li ng-repeat="user in users.all" data-id="{{user._id}" ng-click="users.selectUser(user)" }>
-        <h4> {{ user.username }} </h4>
-        <h5> {{ user.email }}</h5>
-      </li>
-    </ul>
+  <div class="container-fluid">
 
-    <div ng-show="users.selectedUser">
-      <h3>{{ users.selectedUser.name }} email address is {{ users.selectedUser.email }}</h3>
-      <img class="userPic" ng-src="{{ users.selectedUser.picture }}" alt="userpicture" />
+    <h1>hello from index!</h1>
+    <a ui-sref-active="active" ui-sref="about">About</a>
+
+
+    <section ng-controller="UsersController as users">
+      <div class="row">
+        <div class="col-xs-12 col-md-8">
+        <ul id="users">
+          <li ng-repeat="user in users.all" data-id="{{user._id}" ng-click="users.selectUser(user)" }>
+            <h4> {{ user.username }} </h4>
+            <h5> {{ user.email }}</h5>
+          </li>
+        </ul>
+      </div>
+
+<div class="col-xs-12 col-md-4">
+        <div ng-show="users.selectedUser">
+          <hr>
+          <h3>{{ users.selectedUser.name }} email address is {{ users.selectedUser.email }}</h3>
+          <img class="userPic" ng-src="{{ users.selectedUser.picture }}" alt="userpicture" />
+        </div>
+
+      </div>
     </div>
+    </section>
 
+    <section ng-controller="ExperiencesController as experiences">
+      <div class="row">
+      <hr>
+      <h2> event information</h2>
+      <li ng-repeat="experience in experiences.all">
+        <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
+        <h5> {{ experience.lat }} : {{ experience.lng }}</h5>
+      </li>
+    </div>
+    </section>
 
-  </section>
+    <main ui-view>
 
-   <section ng-controller="ExperiencesController as experiences">
-     <h2> event information</h2>
-    <li ng-repeat="experience in experiences.all">
-      <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
-      <h3> {{ experience.lat }} : {{ experience.lng }}</h3>
-    </li>
+  	</main>
 
-  </section>
 
 </body>
 
