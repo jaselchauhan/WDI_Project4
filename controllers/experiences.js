@@ -11,6 +11,7 @@ function experienceQuery(req, res) {
   // req.body.end
 
   var params = {
+    "expand": "venue",
     token: token,
     'venue.city': req.body.city,
     'start_date.range_start': req.body.start,

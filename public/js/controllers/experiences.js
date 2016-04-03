@@ -1,7 +1,7 @@
 angular.module('wdiproject4')
   .constant('API_URL', 'http://localhost:3000/experiences/')
+  .constant('API_KEY_WEATHER', '87ca65f966e5c408abfc6d84b66d676f')
   .controller('ExperiencesController', ExperiencesController);
-
 
 ExperiencesController.$inject = ['$http', 'API_URL'];
 
@@ -11,25 +11,41 @@ function ExperiencesController($http, API_URL) {
 
   //think i need to add ng-model from form into queryData.
   this.queryData = {
-
-    "city": "London",
-    "start": "2016-05-05T19:00:00Z",
-    "end": "2016-05-05T19:00:00Z"
+    //
+    // "city": "London",
+    // "start": "2016-05-05T19:00:00Z",
+    // "end": "2016-05-05T19:00:00Z"
   };
-  this.all = [];
 
-  function getExperiences() {
+  this.all = {};
+  this.weather = {};
+
+  self.getExperiences = function () {
     $http
       .post(API_URL, self.queryData)
       .then(function(res) {
-        self.all = res;
+        self.all = res.data;
         console.log("function fired,");
+        console.log(res.data);
+      })
+  }
+
+
+  self.getWeather = function () {
+
+    var lat = 51.515;
+    var lon = 0.0722;
+    var cnt = 1;
+    var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=' + cnt + '&APPID=87ca65f966e5c408abfc6d84b66d676f';
+    $http
+      .get(url)
+      .then(function(res){
+        self.weather = res
+        console.log(res);
       })
   }
 
   // getExperiences();
-
-  //next step is to hook this up to the front end index using ng-model to see if we can get anything back from it
 
 }
 
