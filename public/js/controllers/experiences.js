@@ -3,9 +3,9 @@ angular.module('wdiproject4')
   .constant('API_KEY_WEATHER', '87ca65f966e5c408abfc6d84b66d676f')
   .controller('ExperiencesController', ExperiencesController);
 
-ExperiencesController.$inject = ['$http', 'API_URL'];
+ExperiencesController.$inject = ['$http', '$state', 'API_URL'];
 
-function ExperiencesController($http, API_URL) {
+function ExperiencesController($http, $state, API_URL) {
 
   var self = this;
 
@@ -19,6 +19,8 @@ function ExperiencesController($http, API_URL) {
 
   this.all = {};
   this.weather = {};
+  this.selectedExperience = {};
+
 
   self.getExperiences = function () {
     $http
@@ -29,7 +31,6 @@ function ExperiencesController($http, API_URL) {
         console.log(res.data);
       })
   }
-
 
   self.getWeather = function () {
 
@@ -44,6 +45,12 @@ function ExperiencesController($http, API_URL) {
         console.log(res);
       })
   }
+
+self.selectExperience = function (experience){
+  self.selectedExperience = experience;
+  $state.go('experience')
+}
+
 
   // getExperiences();
 

@@ -12,6 +12,7 @@ function experienceQuery(req, res) {
 
   var params = {
     "expand": "venue",
+    // "q": "festival",
     token: token,
     'venue.city': req.body.city,
     'start_date.range_start': req.body.start,
@@ -24,7 +25,7 @@ function experienceQuery(req, res) {
 
 
 //makes the GET request to the eventbrite api. To search for something
-//first look at API for url route to use and search terms then,
+//first look at API for ur2l route to use and search terms then,
 //test the url req'd in Insomnia, and then break down search query into
 //the query string (params in this code), and pass ito the request function.
   request({

@@ -1,5 +1,3 @@
-<section ng-controller="ExperiencesController as experiences">
-
   <div class="searchForm center-block">
     <form class="form-inline" ng-submit='experiences.getExperiences()'>
       <div class="form-group">
@@ -25,7 +23,7 @@
     <div class="row">
 
       <div class="searchResults">
-        <li ng-repeat="experience in experiences.all">
+        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience)">
           <div class="col-xs-12 col-md-4">
             <!-- <h4> {{ experience.logo.url }}</h4> -->
             <img ng-src=" {{ experience.logo.url }}" alt="eventpicture" />
@@ -35,8 +33,7 @@
 
     </div>
 
-
-  </div>
+</div>
 
 
 
@@ -47,21 +44,3 @@
       <h4> {{ experience }}</h4>
     </li>
   </div>
-
-  <!--
-  <div class="row">
-  <hr>
-  <h2> event information</h2>
-  <li ng-repeat="experience in experiences.all">
-    <h4> {{ experience.capacity }}: {{ experience.url }} </h4>
-    <h5> {{ experience.lat }} : {{ experience.lng }}</h5>
-  </li>
-
-
-<map center="main.mapCenter" markers="main.mapMarkers">
-
-
-
-
-</div> -->
-</section>

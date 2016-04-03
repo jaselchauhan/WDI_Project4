@@ -3,7 +3,6 @@ angular.module('wdiproject4', ['ngResource', 'ui.router'])
 
 console.log('hi from app.js')
 
-
 Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 function Router($stateProvider, $urlRouterProvider) {
@@ -19,6 +18,10 @@ function Router($stateProvider, $urlRouterProvider) {
   .state('users', {
   url: '/users',
   templateUrl: 'users.html'
+  })
+  .state('experience', {
+  url: '/experience',
+  templateUrl: 'experience.html'
   });
 
   $urlRouterProvider.otherwise('/');
