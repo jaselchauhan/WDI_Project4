@@ -5,6 +5,9 @@
     <div class="row">
       <div class="col-xs-12 col-md-4">
         <div>
+
+          <map center="map.mapCenter" markers="map.mapMarkers"> </map>
+
           <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
 
           <p>
@@ -23,7 +26,7 @@
       </div>
       <div class="col-xs-12 col-md-4">
         <div class="weatherResults">
-          <button type="button" ng-click="experiences.getWeather()">click for weather</button>
+          <!-- <button type="button" ng-click="experiences.getWeather()">click for weather</button> -->
           <h4> lat: {{ experiences.weather.city.coord.lat }} | lon: {{ experiences.weather.city.coord.lon }}</h4>
 
           <h5> city: {{ experiences.weather.city.name}}</h5>
@@ -37,7 +40,7 @@
       </div>
     </div>
 
-
+<br><br>
 
 
     <p>

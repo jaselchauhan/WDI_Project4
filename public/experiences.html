@@ -27,8 +27,8 @@
     <div id="searchResults"class="row">
 
       <div class="searchResults module content">
-        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience)">
-          <div class="col-xs-12 col-md-4">
+        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience) ; experiences.getWeather()">
+          <div class=" searchResultDiv col-xs-12 col-md-4">
             <!-- <h4> {{ experience.logo.url }}</h4> -->
             <img ng-src=" {{ experience.logo.url }}" alt="eventpicture" />
           </div>

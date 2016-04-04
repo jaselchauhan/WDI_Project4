@@ -35,7 +35,6 @@ function ExperiencesController($http, $state, API_URL) {
   self.getWeather = function () {
 
     //log the date too
-    //
     // var lat = 51.515;
     // var lon = 0.0722;
 
