@@ -26,6 +26,7 @@ function ExperiencesController($http, $state, API_URL) {
     $http
       .post(API_URL, self.queryData)
       .then(function(res) {
+        self.all = [];
         self.all = res.data;
         console.log("function fired,");
         console.log(res.data);
@@ -56,9 +57,7 @@ self.selectExperience = function (experience){
   $state.go('experience')
 }
 
-
   // getExperiences();
-
 
 //need to pass venue lat and long into lat and lon for weather api then make the call.
 
@@ -74,21 +73,14 @@ self.convertToFahrenheit = function(degK) {
 
     };
 
+self.scrollTop = function () {
+  window.scrollTo(0,0);
+}
 
 
 }
 
 
-var GMAPS_BROWSER_KEY = 'AIzaSyDhLdC2fl5bESU5nlQH_ncKGR-DcvDafVw';
-
-var map;
-
-      self.initMap = function () {
-        map = new google.maps.Map(document.getElementById('map'), {
-          center: {lat: -34.397, lng: 150.644},
-          zoom: 8
-        });
-      }
 
 
 

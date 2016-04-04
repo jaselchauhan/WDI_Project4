@@ -27,7 +27,7 @@
     <div id="searchResults"class="row">
 
       <div class="searchResults module content">
-        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience) ; experiences.getWeather()">
+        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience) ; experiences.getWeather(); experiences.scrollTop()">
           <div class=" searchResultDiv col-xs-12 col-md-4">
             <!-- <h4> {{ experience.logo.url }}</h4> -->
             <img ng-src=" {{ experience.logo.url }}" alt="eventpicture" />
@@ -36,6 +36,8 @@
       </div>
 
     </div>
+<!--
+<button type="button" ng-click="experiences.scrollTop()">click here to scroll to top</button> -->
 
 </div>
 </section>
