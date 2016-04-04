@@ -1,4 +1,4 @@
-angular.module('wdiproject4', ['ngResource', 'ui.router'])
+angular.module('wdiproject4', ['ngResource', 'ui.router', 'ngMaterial'])
   .config(Router);
 
 console.log('hi from app.js')

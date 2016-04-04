@@ -3,11 +3,42 @@ angular.module('wdiproject4')
   .constant('API_KEY_WEATHER', '87ca65f966e5c408abfc6d84b66d676f')
   .controller('ExperiencesController', ExperiencesController);
 
-ExperiencesController.$inject = ['$http', '$state', 'API_URL'];
+ExperiencesController.$inject = ['$http', '$state', 'API_URL', 'weather'];
 
-function ExperiencesController($http, $state, API_URL) {
+function ExperiencesController($http, $state, API_URL, weather) {
 
   var self = this;
+
+
+
+
+  self.myDate = new Date();
+
+    self.minDate = new Date(
+        self.myDate.getFullYear(),
+        self.myDate.getMonth() - 2,
+        self.myDate.getDate());
+
+    self.maxDate = new Date(
+        self.myDate.getFullYear(),
+        self.myDate.getMonth() + 2,
+        self.myDate.getDate());
+
+    self.onlyWeekendsPredicate = function(date) {
+      var day = date.getDay();
+      return day === 0 || day === 6;
+    }
+
+
+
+
+
+
+
+
+
+
+
 
   //think i need to add ng-model from form into queryData.
   this.queryData = {
@@ -30,6 +61,8 @@ function ExperiencesController($http, $state, API_URL) {
         self.all = res.data;
         console.log("function fired,");
         console.log(res.data);
+        console.log("hi from controller!");
+        console.log(weather.greeting());
       })
   }
 
@@ -57,30 +90,34 @@ self.selectExperience = function (experience){
   $state.go('experience')
 }
 
+//create a currentexperience service. self.getExperience
+
   // getExperiences();
 
 //need to pass venue lat and long into lat and lon for weather api then make the call.
 
-self.convertToFahrenheit = function(degK) {
-
-        return Math.round((1.8 * (degK - 273)) + 32);
-
+self.convertToCelsius = function(degK) {
+        return Math.round(degK - 273.15);
     }
 
     self.convertToDate = function(dt) {
-
         return new Date(dt * 1000);
-
     };
 
 self.scrollTop = function () {
   window.scrollTo(0,0);
 }
 
+self.momentDate = function (unixDate){
+  var day = moment.unix(unixDate);
+  return day;
+}
+
 
 }
 
 
+//need to pass the date from search to the weather api so it can get forecast for correct date.
 
 
 

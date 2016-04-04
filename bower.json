@@ -21,6 +21,8 @@
     "bootstrap": "^3.3.6",
     "angular-ui-router": "^0.2.18",
     "angular-resource": "^1.5.3",
-    "normalize-css": "^4.0.0"
+    "normalize-css": "^4.0.0",
+    "angular-material": "^1.0.7",
+    "moment": "^2.12.0"
   }
 }

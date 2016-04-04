@@ -13,7 +13,6 @@
           <p>
             address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }} {{ experiences.selectedExperience.venue.address.latitude }} {{
             experiences.selectedExperience.venue.address.longitude }}
-
           </p>
 
           <h5>from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
@@ -30,9 +29,14 @@
           <h4> lat: {{ experiences.weather.city.coord.lat }} | lon: {{ experiences.weather.city.coord.lon }}</h4>
 
           <h5> city: {{ experiences.weather.city.name}}</h5>
-          <h5> weather: day {{ experiences.weather.list[0].temp.day}} | night: {{ experiences.weather.list[0].temp.eve}}</h5>
+
+          <img src="http://openweathermap.org/img/w/{{ experiences.weather.list[0].weather[0].icon }}.png">
+
+          <!-- <h5> weather in celsius : {{ experiences.convertToCelsius(experiences.weather.list[0].temp.day) }}</h5> -->
+          <h5> weather in &#8451; : day {{ experiences.convertToCelsius(experiences.weather.list[0].temp.day) }} | night: {{ experiences.convertToCelsius(experiences.weather.list[0].temp.eve) }}</h5>
           <h6> desc: {{ experiences.weather.list[0].weather[0].description}} </h6>
           <h6> forecast date: {{ experiences.weather.list[0].dt}} </h6>
+          <h6> forecast date proper format: {{ experiences.momentDate(experiences.weather.list[0].dt)}}</h6>
 
           <!-- <h6>Daytime temperature: {{ experiences.convertToFahrenheit({ experiences.weather.list[0].temp.day }) }}</h6>
           <h6>converted date: {{ convertToDate({ experiences.weather.list[0].dt })</h6> -->
