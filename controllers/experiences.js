@@ -12,7 +12,7 @@ function experienceQuery(req, res) {
 
   var params = {
     "expand": "venue",
-    // "q": "festival",
+    "q": "festival",
     token: token,
     'venue.city': req.body.city,
     'start_date.range_start': req.body.start,

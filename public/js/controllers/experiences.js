@@ -34,15 +34,21 @@ function ExperiencesController($http, $state, API_URL) {
 
   self.getWeather = function () {
 
-    var lat = 51.515;
-    var lon = 0.0722;
+    //log the date too
+    //
+    // var lat = 51.515;
+    // var lon = 0.0722;
+
+    var lat = this.selectedExperience.venue.address.latitude;
+    var lon = this.selectedExperience.venue.address.longitude;
+
     var cnt = 1;
     var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=' + cnt + '&APPID=87ca65f966e5c408abfc6d84b66d676f';
     $http
       .get(url)
       .then(function(res){
-        self.weather = res
-        console.log(res);
+        self.weather = res.data
+        console.log(self.weather);
       })
   }
 
@@ -54,12 +60,36 @@ self.selectExperience = function (experience){
 
   // getExperiences();
 
+
+//need to pass venue lat and long into lat and lon for weather api then make the call.
+
+self.convertToFahrenheit = function(degK) {
+
+        return Math.round((1.8 * (degK - 273)) + 32);
+
+    }
+
+    self.convertToDate = function(dt) {
+
+        return new Date(dt * 1000);
+
+    };
+
+
+
 }
 
 
+var GMAPS_BROWSER_KEY = 'AIzaSyDhLdC2fl5bESU5nlQH_ncKGR-DcvDafVw';
 
+var map;
 
-
+      self.initMap = function () {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
 
 
 
