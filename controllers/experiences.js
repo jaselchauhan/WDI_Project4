@@ -9,6 +9,7 @@ function experienceQuery(req, res) {
   // req.body.city
   // req.body.start
   // req.body.end
+  // console.log(startDate);
 
   var params = {
     "expand": "venue",
@@ -18,6 +19,7 @@ function experienceQuery(req, res) {
     'start_date.range_start': req.body.start,
     'start_date.range_end': req.body.end
   };
+  console.log("before api call made: ",params);
 
   var hash = sha1(params);
 
@@ -36,7 +38,7 @@ function experienceQuery(req, res) {
   .then(function(response) {
     //the .events comes from looking at the api json object - there was also an object of metadata which
     //wasnt needed in this case so only events were targeted
-    console.log(params);
+    console.log("after api call has been made",params);
     // console.log(response);
     cache[hash] = response.events;
     // console.log(hash);

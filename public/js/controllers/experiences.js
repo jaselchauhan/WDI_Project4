@@ -40,10 +40,13 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
   this.selectedExperience = {};
 
   self.getExperiences = function () {
+    // self.queryData.start = new Date(self.queryData.start)
+    // self.queryData.end = new Date(self.queryData.end)
+    self.all = [];
     $http
       .post(API_URL, self.queryData)
       .then(function(res) {
-        self.all = [];
+        // self.all = [];
         self.all = res.data;
         // console.log("function fired,");
         console.log(res.data);
