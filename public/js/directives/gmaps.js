@@ -1,19 +1,32 @@
 angular.module('wdiproject4')
   .controller('MapController', MapController)
+  // .controller('ExperiencesController', ExperiencesController)
   .directive('map', Gmap);
 
-function MapController() {
+MapController.$inject = ['location'];
+function MapController(location) {
   //set map center to be on venue location
+  var pos = location.get();
+  // console.log("POSITION", pos);
+  //
+  // console.log(lat1,lng1);
+
   this.mapCenter = {
-    lat: 51.4802,
-    lng: -0.0193
+    // lat: 51.4802,
+    // lng: -0.0193
+
+    lat: pos.latitude,
+    lng: pos.longitude
+
   };
   //set map marker to be venue location
   this.mapMarkers = [{
-    name: "Buckingham Palace",
+    name: "Venue Location",
     position: {
-      lat: 51.501364,
-      lng: -0.14189
+      // lat: 51.501364,
+      // lng: -0.14189
+      lat: pos.latitude,
+      lng: pos.longitude
     }
   }]
 }
@@ -31,7 +44,7 @@ function Gmap() {
 
       if (!scope.center) throw new Error("You must provide a center for your map directive");
 
-      console.log(scope.center);
+      // console.log(scope.center, "from gmaps scope.center");
 
 
 

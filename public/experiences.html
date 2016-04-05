@@ -1,23 +1,20 @@
 <section class="searchFormContainer module parallax parallax-1">
 
   <div class="searchForm center-block">
-    <form class="form-inline searchForm" ng-submit='experiences.getExperiences()'>
+    <form class="form-inline" ng-submit='experiences.getExperiences()'>
       <div class="form-group">
-        <label for="search-location">where do you want to go?</label>
-        <input type="text" class="form-control" id="search-location" placeholder="worldwide" ng-model='experiences.queryData.city'>
+        <input type="text" class="form-control" id="search-location" placeholder="enter a city" ng-model='experiences.queryData.city'>
       </div>
 
       <div class="form-group">
-        <label for="search-from">From which date</label>
         <input type="text" class="form-control" id="search-from" placeholder="01/01/2017" ng-model='experiences.queryData.start'>
       </div>
 
       <div class="form-group">
-        <label for="search-to">till which date</label>
         <input type="text" class="form-control" id="search-to" placeholder="03/01/2017" ng-model='experiences.queryData.end'>
       </div>
-<!--
-      <div class="form-group">
+
+      <!-- <div class="form-group">
         <h4>picks start date</h4>
         <md-datepicker ng-model="experiences.queryData.start" md-placeholder="Enter date"></md-datepicker>
 
@@ -34,11 +31,11 @@
         <input type="submit" class="btn btn-default" value="find your festival">
       </div>
     </form>
-
+  </div>
     <div id="searchResults" class="row">
 
       <div class="searchResults module content">
-        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience) ; experiences.getWeather(); experiences.scrollTop()">
+        <li ng-repeat="experience in experiences.all" ng-click="experiences.selectExperience(experience) ; experiences.scrollTop()">
           <div class=" searchResultDiv col-xs-12 col-md-4">
             <!-- <h4> {{ experience.logo.url }}</h4> -->
             <img ng-src=" {{ experience.logo.url }}" alt="eventpicture" />
@@ -50,5 +47,5 @@
     <!--
 <button type="button" ng-click="experiences.scrollTop()">click here to scroll to top</button> -->
 
-  </div>
+
 </section>

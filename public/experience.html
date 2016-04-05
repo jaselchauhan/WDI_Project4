@@ -28,7 +28,10 @@
           <!-- <button type="button" ng-click="experiences.getWeather()">click for weather</button> -->
           <h4> lat: {{ experiences.weather.city.coord.lat }} | lon: {{ experiences.weather.city.coord.lon }}</h4>
 
-          <h5> city: {{ experiences.weather.city.name}}</h5>
+          <h1> test: {{ experiences.weatherInfo.city.name }} </h1>
+
+
+          <h5> city: {{ experiences.weather.city}}</h5>
 
           <img src="http://openweathermap.org/img/w/{{ experiences.weather.list[0].weather[0].icon }}.png">
 

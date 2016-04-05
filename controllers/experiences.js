@@ -36,9 +36,10 @@ function experienceQuery(req, res) {
   .then(function(response) {
     //the .events comes from looking at the api json object - there was also an object of metadata which
     //wasnt needed in this case so only events were targeted
-    console.log(response);
+    console.log(params);
+    // console.log(response);
     cache[hash] = response.events;
-    console.log(hash);
+    // console.log(hash);
     return res.status(200).json(cache[hash]);
   });
 }

@@ -3,14 +3,11 @@ angular.module('wdiproject4')
   .constant('API_KEY_WEATHER', '87ca65f966e5c408abfc6d84b66d676f')
   .controller('ExperiencesController', ExperiencesController);
 
-ExperiencesController.$inject = ['$http', '$state', 'API_URL', 'weather'];
+ExperiencesController.$inject = ['$http', '$state', 'API_URL', 'weather', 'location'];
 
-function ExperiencesController($http, $state, API_URL, weather) {
+function ExperiencesController($http, $state, API_URL, weather, location) {
 
   var self = this;
-
-
-
 
   self.myDate = new Date();
 
@@ -29,17 +26,6 @@ function ExperiencesController($http, $state, API_URL, weather) {
       return day === 0 || day === 6;
     }
 
-
-
-
-
-
-
-
-
-
-
-
   //think i need to add ng-model from form into queryData.
   this.queryData = {
     //
@@ -49,9 +35,9 @@ function ExperiencesController($http, $state, API_URL, weather) {
   };
 
   this.all = {};
-  this.weather = {};
-  this.selectedExperience = {};
+  this.weatherInfo = {};
 
+  this.selectedExperience = {};
 
   self.getExperiences = function () {
     $http
@@ -59,35 +45,51 @@ function ExperiencesController($http, $state, API_URL, weather) {
       .then(function(res) {
         self.all = [];
         self.all = res.data;
-        console.log("function fired,");
+        // console.log("function fired,");
         console.log(res.data);
         console.log("hi from controller!");
-        console.log(weather.greeting());
+        // console.log(weather.greeting());
+
       })
   }
-
-  self.getWeather = function () {
-
-    //log the date too
-    // var lat = 51.515;
-    // var lon = 0.0722;
-
-    var lat = this.selectedExperience.venue.address.latitude;
-    var lon = this.selectedExperience.venue.address.longitude;
-
-    var cnt = 1;
-    var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=' + cnt + '&APPID=87ca65f966e5c408abfc6d84b66d676f';
-    $http
-      .get(url)
-      .then(function(res){
-        self.weather = res.data
-        console.log(self.weather);
-      })
-  }
+ // experiences.weather.getWeather();
+  // self.getWeather = function () {
+  //
+  //   //log the date too
+  //   // var lat = 51.515;
+  //   // var lon = 0.0722;
+  //
+  //   var lat = this.selectedExperience.venue.address.latitude;
+  //   var lon = this.selectedExperience.venue.address.longitude;
+  //
+  //   var cnt = 1;
+  //   var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=' + cnt + '&APPID=87ca65f966e5c408abfc6d84b66d676f';
+  //   $http
+  //     .get(url)
+  //     .then(function(res){
+  //       self.weather = res.data
+  //       console.log(self.weather);
+  //     })
+  // }
 
 self.selectExperience = function (experience){
   self.selectedExperience = experience;
-  $state.go('experience')
+
+  location.set(self.selectedExperience.venue.address);
+
+  console.log(weather.greeting());
+  weather.getWeather(function(weatherObj) {
+  // var weatherObj = weather.getWeather();
+
+  //apply async to this variable which will mean that the show page will load before waiting for the weather to load.
+    // console.log(weatherObj);
+    weatherInfo = weatherObj;
+    console.log("weatherData stored in controller variable",weatherInfo);
+    console.log("lat",weatherInfo.city.coord.lat, ":  lng:", weatherInfo.city.coord.lon);
+  });
+
+  $state.go('experience');
+
 }
 
 //create a currentexperience service. self.getExperience
@@ -96,9 +98,9 @@ self.selectExperience = function (experience){
 
 //need to pass venue lat and long into lat and lon for weather api then make the call.
 
-self.convertToCelsius = function(degK) {
-        return Math.round(degK - 273.15);
-    }
+// self.convertToCelsius = function(degK) {
+//         return Math.round(degK - 273.15);
+//     }
 
     self.convertToDate = function(dt) {
         return new Date(dt * 1000);

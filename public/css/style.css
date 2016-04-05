@@ -48,7 +48,17 @@ body div h1 {
 
 .searchForm{
   text-align: center;
+  background-color: #ffffff;
+  opacity:0.9;
+  height:100px;
+  border-top: 1px solid #dd2c00;
+  border-bottom: 1px solid #dd2c00;
 
+
+}
+
+.form-inline{
+  padding-top:30px;
 }
 
 li{
@@ -86,6 +96,14 @@ li{
 .searchForm{
   margin-top: 500px;
 }
+
+.form-control:focus{
+    outline: none !important;
+    border:1px solid #dd2c00 !important;
+    box-shadow: 0 00px 5px #dd2c00 !important;
+}
+
+
 
 #searchResults{
   margin-top:200px;
@@ -128,6 +146,22 @@ section.module.parallax h1 {
 }
 section.module.parallax-1 {
   background-image: url("../img/pic2.jpg");
+}
+
+.navbar-fixed-top{
+  background-color:#ffffff;
+  border-bottom: 1px solid #dd2c00;
+}
+
+.btn-default{
+  color:#dd2c00;
+  font-weight: bold;
+  border: 1px solid #dd2c00;
+}
+
+.btn-default:hover{
+  background-color:white ;
+
 }
 
 

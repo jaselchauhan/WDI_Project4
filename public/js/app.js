@@ -12,16 +12,17 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: 'about.html'
   })
   .state('experiences', {
-  url: '/experiences',
-  templateUrl: 'experiences.html'
+    url: '/experiences',
+    templateUrl: 'experiences.html'
   })
   .state('users', {
-  url: '/users',
-  templateUrl: 'users.html'
+    url: '/users',
+    templateUrl: 'users.html'
   })
   .state('experience', {
-  url: '/experience',
-  templateUrl: 'experience.html'
+    url: '/experience',
+    templateUrl: 'experience.html',
+    controller: 'MapController as map'
   });
 
   $urlRouterProvider.otherwise('/');
