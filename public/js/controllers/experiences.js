@@ -72,7 +72,7 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
   //     })
   // }
 
-self.selectExperience = function (experience){
+self.selectExperience = function (experience) {
   self.selectedExperience = experience;
 
   location.set(self.selectedExperience.venue.address);
@@ -83,9 +83,9 @@ self.selectExperience = function (experience){
 
   //apply async to this variable which will mean that the show page will load before waiting for the weather to load.
     // console.log(weatherObj);
-    weatherInfo = weatherObj;
-    console.log("weatherData stored in controller variable",weatherInfo);
-    console.log("lat",weatherInfo.city.coord.lat, ":  lng:", weatherInfo.city.coord.lon);
+    self.weatherInfo = weatherObj;
+    console.log("weatherData stored in controller variable",self.weatherInfo);
+    console.log("lat",self.weatherInfo.city.coord.lat, ":  lng:", self.weatherInfo.city.coord.lon);
   });
 
   $state.go('experience');

@@ -20,25 +20,23 @@
 
         </div>
       </div>
+
       <div class="col-xs-12 col-md-4">
         <img class="experiencePic" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
       </div>
       <div class="col-xs-12 col-md-4">
         <div class="weatherResults">
           <!-- <button type="button" ng-click="experiences.getWeather()">click for weather</button> -->
-          <h4> lat: {{ experiences.weather.city.coord.lat }} | lon: {{ experiences.weather.city.coord.lon }}</h4>
+          <h4> lat: {{ experiences.weatherInfo.city.coord.lat }} | lon: {{ experiences.weatherInfo.city.coord.lon }}</h4>
 
-          <h1> test: {{ experiences.weatherInfo.city.name }} </h1>
-
-
-          <h5> city: {{ experiences.weather.city}}</h5>
+          <h5> city: {{ experiences.weatherInfo.city.name }} </h5>
 
           <img src="http://openweathermap.org/img/w/{{ experiences.weather.list[0].weather[0].icon }}.png">
 
           <!-- <h5> weather in celsius : {{ experiences.convertToCelsius(experiences.weather.list[0].temp.day) }}</h5> -->
           <h5> weather in &#8451; : day {{ experiences.convertToCelsius(experiences.weather.list[0].temp.day) }} | night: {{ experiences.convertToCelsius(experiences.weather.list[0].temp.eve) }}</h5>
-          <h6> desc: {{ experiences.weather.list[0].weather[0].description}} </h6>
-          <h6> forecast date: {{ experiences.weather.list[0].dt}} </h6>
+          <h6> desc: {{ experiences.weatherInfo.list[0].weather[0].description}} </h6>
+          <h6> forecast date: {{ experiences.weatherInfo.list[0].dt}} </h6>
           <h6> forecast date proper format: {{ experiences.momentDate(experiences.weather.list[0].dt)}}</h6>
 
           <!-- <h6>Daytime temperature: {{ experiences.convertToFahrenheit({ experiences.weather.list[0].temp.day }) }}</h6>
