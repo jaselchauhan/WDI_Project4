@@ -1,5 +1,7 @@
-angular.module('wdiproject4', ['ngResource', 'ui.router', 'ngMaterial'])
-  .config(Router);
+angular.module('wdiproject4', ['ngResource', 'ui.router', 'ngMaterial','satellizer', 'angular-jwt'])
+  .config(Router)
+  .constant('API_URL2', 'http://localhost:3000')
+  .config(oauthConfig);
 
 console.log('hi from app.js')
 
@@ -12,7 +14,7 @@ function Router($stateProvider, $urlRouterProvider) {
     templateUrl: 'about.html'
   })
   .state('experiences', {
-    url: '/experiences',
+    url: '/',
     templateUrl: 'experiences.html'
   })
   .state('users', {
@@ -27,4 +29,20 @@ function Router($stateProvider, $urlRouterProvider) {
 
   $urlRouterProvider.otherwise('/');
 
+}
+
+oauthConfig.$inject = ['API_URL2','$authProvider','FACEBOOK_API_KEY', 'GITHUB_API_KEY'];
+
+function oauthConfig(API_URL2, $authProvider, FACEBOOK_API_KEY, GITHUB_API_KEY){
+  $authProvider.facebook({
+    url: API_URL2 + '/auth/facebook',
+    clientId: FACEBOOK_API_KEY
+  })
+
+  $authProvider.github({
+    url: API_URL2 + '/auth/github',
+    clientId: GITHUB_API_KEY
+  })
+
+  $authProvider.tokenPrefix = null;
 }

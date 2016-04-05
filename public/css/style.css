@@ -10,11 +10,14 @@ color: #131313;
 
 .navbar-default .navbar-brand{
   color:#ff5400;
-  font-size: 30px;
+  font-size: 40px;
+  margin-top: 15px;
 }
 
 .navbar-default .navbar-nav > li > a{
   color:#ff5400;
+  font-size: 20px;
+  margin-top:20px;
 }
 
 #experienceTitle{
@@ -105,6 +108,76 @@ li{
 
 
 
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 350px;
+  height: 400px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75); }
+
+button {
+  border: 0;
+  background: none;
+  width: 208px;
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -0.5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400; }
+  button.facebook {
+    margin-top: 45px;
+    background: #46629E;
+    border: 1px solid #3e578c; }
+    button.facebook:hover {
+      background: #415b93; }
+  button.github {
+    background: #74C74F;
+    border: 1px solid #65c03d; }
+    button.github:hover {
+      background: #6bc343; }
+  button.logout {
+    margin-top: 45px;
+    background: #c55151; }
+    button.logout:hover {
+      background: #a63838; }
+
+
+
+
+      #profilePic {
+        max-width: 70px;
+        border-radius: 100%;
+        border: 1px solid #dd2c00;
+        margin-top: 15px;
+        margin-right: 20px;
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #searchResults{
   margin-top:200px;
 }
@@ -151,6 +224,7 @@ section.module.parallax-1 {
 .navbar-fixed-top{
   background-color:#ffffff;
   border-bottom: 1px solid #dd2c00;
+  height: 100px;
 }
 
 .btn-default{

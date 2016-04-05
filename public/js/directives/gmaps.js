@@ -50,7 +50,7 @@ function Gmap() {
 
       var map = new google.maps.Map($element[0], {
         center: scope.center,
-        zoom: 13,
+        zoom: 11,
         styles: [{
           "featureType": "administrative",
           "elementType": "labels.text.fill",
