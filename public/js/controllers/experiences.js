@@ -58,6 +58,9 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
         // console.log(weather.greeting());
 
       })
+      .then(function(){
+        self.scrollToResults();
+      })
   }
 
 self.selectExperience = function (experience) {
@@ -100,6 +103,11 @@ self.greeting = function () {
 
 self.scrollTop = function () {
   window.scrollTo(0,0);
+}
+
+self.scrollToResults = function () {
+  window.scrollTo(0,400);
+  console.log("scroll function fired");
 }
 
 self.momentDate = function (unixDate){

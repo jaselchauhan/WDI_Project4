@@ -131,16 +131,16 @@ button {
   font-size: 16px;
   font-weight: 400; }
   button.facebook {
-    margin-top: 45px;
+    margin-top: 15px;
     background: #46629E;
     border: 1px solid #3e578c; }
     button.facebook:hover {
       background: #415b93; }
   button.github {
-    background: #74C74F;
-    border: 1px solid #65c03d; }
+    background: #ff7d29;
+    border: 1px solid #ff7d44; }
     button.github:hover {
-      background: #6bc343; }
+      background: #ff7d29; }
   button.logout {
     margin-top: 45px;
     background: #c55151; }
@@ -279,6 +279,59 @@ section.module.parallax-1 {
     top: 10px;
   }
 
+  .homeBanner{
+  text-align: center;
+  color:#F5F5F5;
+  }
+
+  #homeBannerTitle{
+    font-size:40px;
+    color:white;
+
+  }
+
+.homePage{
+  background-image: url('../img/pic2.jpg');
+  background-size: cover;
+  height:100vh;
+  width:100%;
+  border: 2px solid black;
+}
+
+.shader {
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.shaderExperience{
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  position: absolute;
+  width: 90%;
+  height: 100%;
+}
+
+.centered {
+margin-top: -50px;
+width: 250px;
+z-index: 2;
+position: absolute;
+left: 50%;
+top: 50%;
+transform: translate(-50%,-50%);
+}
+
+button.github{
+  margin-left:20px;
+}
+button.facebook{
+  margin-left:20px;
+  margin-bottom: 10px;
+}
+
   .navbar-fixed-top{
     background-color:#333333;
     border-bottom: 5px solid #ff7d29;
@@ -378,7 +431,30 @@ input.btn.btn-default{
   margin-left:1%;
   margin-right:1%;
   margin-top: 20px;
+  // border-left: 1px solid black;
+  // border-right: 1px solid black;
+  border-top: 3px solid #ff7d29;
 }
+
+#weatherInfoDesc{
+  text-align: center;
+}
+
+#venueInfoDesc{
+  text-align: center;
+}
+
+#eventInfoHeading{
+  text-align: center;
+}
+
+#venueInfoHeading{
+  margin-top: 15px;
+  text-align: center;
+  border-bottom: 3px solid #ff7d29;
+  padding-bottom: 15px;
+}
+
 
 .weatherResults{
   margin-bottom: 25px;
@@ -398,7 +474,7 @@ input.btn.btn-default{
   margin-bottom: 20px;
 }
 .eventPicsSearch{
-  height:170px;
+  height:250px;
   width:98%;
   margin-left:1%;
   margin-right:1%;
@@ -412,6 +488,10 @@ input.btn.btn-default{
   margin-left: 1%;
   margin-right: 1%;
   /*margin-left: 50px;*/
+}
+
+#buyTickets{
+  background-color: red;
 }
 
 

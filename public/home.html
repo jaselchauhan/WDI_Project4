@@ -1,12 +1,11 @@
 
-<section class="HomePage" ng-controller="LoginController as login">
+<div class="homePage" ng-controller="LoginController as login">
     <div class="shader"></div>
     <div class="centered">
-      <div class="shader"></div>
-      <h1>find a festival</h1>
-      <h3>enter text ehre</h3>
-      <button class="facebook" ng-click="login.authenticate('eventbrite')"><i class="fa fa-facebook-square"></i> Sign in with Eventbrite</button>
-      <button ui-sref="experiences" class="github" ng-click='login.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
+      <h1 id="homeBannerTitle">wdi project four</h1>
+      <h5 class="homeBanner">an angular single page application made so you can browse for your next festival!</h5>
+      <button class="github" ng-click="login.authenticate('eventbrite')"> Sign in with Eventbrite</button>
+      <button ui-sref="experiences" class="facebook" ng-click='login.authenticate("github")'><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
     </div>
   </div>
-</section>
+</div>
