@@ -7,7 +7,6 @@ function usersIndex(req, res){
   })
 }
 
-
 function getUser(req, res){
   var id = req.params.id;
 
@@ -16,7 +15,6 @@ function getUser(req, res){
     res.status(200).send(user);
   }).select('-_v');
 }
-
 
 module.exports = {
   index: usersIndex,

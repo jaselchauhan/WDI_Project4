@@ -6,10 +6,6 @@ var sha1 = require('sha1');
 var cache = {};
 
 function experienceQuery(req, res) {
-  // req.body.city
-  // req.body.start
-  // req.body.end
-  // console.log(startDate);
 
   var params = {
     "expand": "venue",
@@ -52,28 +48,3 @@ module.exports = {
 
 
 // https://www.eventbriteapi.com/v3/events/search/?token=ZBDVA46PN5NPGCAE772H&q=festival&venue.city=London&start_date.range_start=2016-04-04T19:00:00Z&start_date.range_end=2016-04-05T00:00:00Z
-
-
-
-// function experiencesIndex(req, res){
-//   Experience.find(function(err, experiences){
-//     if(err) return res.status(500).json({message: err});
-//     return res.status(200).json(experiences);
-//   })
-// }
-//
-//
-// function getExperience(req, res){
-//   var id = req.params.id;
-//
-//   Experience.findById({_id: id}, function(err, experience){
-//     if(err) res.status(404).send(err);
-//     res.status(200).send(experience);
-//   }).select('-_v');
-// }
-//
-//
-// module.exports = {
-//   index: experiencesIndex,
-//   getExperience: getExperience
-// }

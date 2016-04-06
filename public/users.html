@@ -2,19 +2,12 @@
   <div class="row">
     <div class="col-xs-12 col-md-8">
     <ul id="users">
-      <li ng-repeat="user in users.all" data-id="{{user._id}" ng-click="users.selectUser(user)" }>
+      <li ng-repeat="user in users.all" data-id="{{user._id}">
         <h4> {{ user.username || user.firstname }}  </h4>
         <h5> {{ user.email }} </h5>
+        <img class="userPic" ng-src="{{ user.picture }}" alt="userpicture" />
       </li>
     </ul>
   </div>
-
-<div class="col-xs-12 col-md-4">
-    <div ng-show="users.selectedUser">
-      <h3>{{ users.selectedUser.name }} email address is {{ users.selectedUser.email }}</h3>
-      <img class="userPic" ng-src="{{ users.selectedUser.picture }}" alt="userpicture" />
-    </div>
-  </div>
 </div>
-
 </section>

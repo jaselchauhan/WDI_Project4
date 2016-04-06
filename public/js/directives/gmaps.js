@@ -7,13 +7,8 @@ MapController.$inject = ['location'];
 function MapController(location) {
   //set map center to be on venue location
   var pos = location.get();
-  // console.log("POSITION", pos);
-  //
-  // console.log(lat1,lng1);
 
   this.mapCenter = {
-    // lat: 51.4802,
-    // lng: -0.0193
 
     lat: pos.latitude,
     lng: pos.longitude
@@ -23,8 +18,6 @@ function MapController(location) {
   this.mapMarkers = [{
     name: "Venue Location",
     position: {
-      // lat: 51.501364,
-      // lng: -0.14189
       lat: pos.latitude,
       lng: pos.longitude
     }
@@ -43,10 +36,6 @@ function Gmap() {
     link: function(scope, $element, attr) {
 
       if (!scope.center) throw new Error("You must provide a center for your map directive");
-
-      // console.log(scope.center, "from gmaps scope.center");
-
-
 
       var map = new google.maps.Map($element[0], {
         center: scope.center,

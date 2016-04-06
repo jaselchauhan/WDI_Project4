@@ -19,7 +19,7 @@ function Router($stateProvider, $urlRouterProvider) {
   })
   .state('users', {
     url: '/users',
-    templateUrl: 'users.html'
+    templateUrl: '/users.html'
   })
   .state('experience', {
     url: '/experience',

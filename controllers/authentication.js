@@ -4,9 +4,7 @@ var User = require('../models/user');
 var config = require('../config/app');
 var oauth = require('../config/oauth');
 
-
 function eventbrite(req, res) {
-
   var access_token;
 
   var params = {
@@ -22,7 +20,6 @@ function eventbrite(req, res) {
     json: true
   })
   .then(function(response) {
-
     access_token = response.access_token;
 
     return request({
@@ -59,7 +56,6 @@ function eventbrite(req, res) {
     return res.status(500).send();
   });
 }
-
 
 
 function github(req, res){

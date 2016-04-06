@@ -48,34 +48,21 @@
     <div class="container-fluid">
 
       <nav class="navbar navbar-default navbar-fixed-top">
-        <!-- <nav class="navbar navbar-default"> -->
         <div class="container-fluid">
           <div class="navbar-header">
-            <!--add ng-click to brand to take back home. -->
             <a class="navbar-brand" href="/">wdi project four <i class="fa fa-globe"></i></a>
           </div>
           <div ng-show="login.isLoggedIn()">
-            <!-- <ul class="nav navbar-nav navbar-right"> -->
             <li><a ui-sref-active="active" ui-sref="experiences"> <span id="searchIcon"<i class="fa fa-search"></span></i></a></li>
             <li>{{ login.currentUser.name }}</li>
             <a ui-sref-active="active" ui-sref="users"><img id="profilePic" ng-src="{{ login.currentUser.picture }}"></a>
-            <!-- <button class="logout" ng-click="login.logout()"><i class="fa fa-sign-out"></i> Logout</button> -->
             <li><a ui-sref="home" src='#' ng-click="login.logout()"> <span id="logoutIcon"><i class="fa fa-sign-out"></span></i></a></li>
             <!-- </ul> -->
           </div>
         </div>
       </nav>
 
-      {{ login.currentUser.picture }}
-
-
-      <!-- <div ng-hide="login.isLoggedIn()">
-        <div class="centered">
-
-          <button class="facebook" ng-click="login.authenticate('eventbrite')"><i class="fa fa-facebook-square"></i> Sign in with Eventbrite</button>
-          <button class="github" ng-click='login.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
-        </div>
-      </div> -->
+      <!-- {{ login.currentUser.picture }} -->
 
 
       <section ng-controller="UsersController as users">
@@ -85,12 +72,6 @@
       </section>
     </div>
 
-
-    <!-- <footer class="footer">
-  <div class="container">
-powered by <img id='footerlogo' ng-src="../public/img/angularlogo.jpg">
-</div>
-</footer> -->
     </div>
 
   </section>
