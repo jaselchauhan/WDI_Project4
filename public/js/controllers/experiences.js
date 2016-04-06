@@ -26,7 +26,6 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
       return day === 0 || day === 6;
     }
 
-  //think i need to add ng-model from form into queryData.
   this.queryData = {
     //
     // "city": "London",
@@ -55,25 +54,6 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
 
       })
   }
- // experiences.weather.getWeather();
-  // self.getWeather = function () {
-  //
-  //   //log the date too
-  //   // var lat = 51.515;
-  //   // var lon = 0.0722;
-  //
-  //   var lat = this.selectedExperience.venue.address.latitude;
-  //   var lon = this.selectedExperience.venue.address.longitude;
-  //
-  //   var cnt = 1;
-  //   var url = 'http://api.openweathermap.org/data/2.5/forecast/daily?lat=' + lat + '&lon=' + lon + '&cnt=' + cnt + '&APPID=87ca65f966e5c408abfc6d84b66d676f';
-  //   $http
-  //     .get(url)
-  //     .then(function(res){
-  //       self.weather = res.data
-  //       console.log(self.weather);
-  //     })
-  // }
 
 self.selectExperience = function (experience) {
   self.selectedExperience = experience;
@@ -82,10 +62,7 @@ self.selectExperience = function (experience) {
 
   console.log(weather.greeting());
   weather.getWeather(function(weatherObj) {
-  // var weatherObj = weather.getWeather();
 
-  //apply async to this variable which will mean that the show page will load before waiting for the weather to load.
-    // console.log(weatherObj);
     self.weatherInfo = weatherObj;
     console.log("weatherData stored in controller variable",self.weatherInfo);
     console.log("lat",self.weatherInfo.city.coord.lat, ":  lng:", self.weatherInfo.city.coord.lon);
