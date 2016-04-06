@@ -9,64 +9,45 @@
         <img class="experiencePic eventPicsSearch" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
       </div>
 
- <i ng-click="experiences.showLocation = !experiences.showLocation" class="fa fa-map-marker"></i>
+ <!-- <i ng-click="experiences.showLocation = !experiences.showLocation" class="fa fa-map-marker"></i> -->
       <div class="col-xs-12 col-md-4">
-
         <div class="weatherResults">
           <!-- <button type="button" ng-click="experiences.getWeather()">click for weather</button> -->
           <!-- <h4> lat: {{ experiences.weatherInfo.city.coord.lat }} | lon: {{ experiences.weatherInfo.city.coord.lon }}</h4> -->
-
-          <h5> city: {{ experiences.weatherInfo.city.name }} </h5>
-
+          <!-- <h5> city: {{ experiences.weatherInfo.city.name }} </h5> -->
           <img src="http://openweathermap.org/img/w/{{ experiences.weather.list[0].weather[0].icon }}.png">
-
           <!-- <h5> weather in celsius : {{ experiences.convertToCelsius(experiences.weather.list[0].temp.day) }}</h5> -->
-          <h5> weather in &#8451; : day {{ experiences.weather.convertToCelsius(experiences.weatherInfo.list[0].temp.day) }} | night: {{ experiences.weather.convertToCelsius(experiences.weatherInfo.list[0].temp.eve) }}</h5>
-          <h6> desc: {{ experiences.weatherInfo.list[0].weather[0].description}} </h6>
+          <!-- <h5> weather in &#8451; : day {{ experiences.weather.convertToCelsius(experiences.weatherInfo.list[0].temp.day) }} | night: {{ experiences.weather.convertToCelsius(experiences.weatherInfo.list[0].temp.eve) }}</h5> -->
+          <h5> weather in &#8451; : day {{experiences.weatherInfo.tempDay }} | night: {{ experiences.weatherInfo.tempEve }}  | {{ experiences.weatherInfo.list[0].weather[0].description}} </h5>
           <!-- <h6> forecast date: {{ experiences.weatherInfo.list[0].dt}} </h6>
           <h6> forecast date proper format: {{ experiences.momentDate(experiences.weather.list[0].dt)}}</h6> -->
-
           <!-- <h6>Daytime temperature: {{ experiences.convertToFahrenheit({ experiences.weather.list[0].temp.day }) }}</h6>
           <h6>converted date: {{ convertToDate({ experiences.weather.list[0].dt })</h6> -->
         </div>
-
-
-
-
-
-        <div class="row" ng-show="experiences.showLocation">
-          <div class="col-xs-12 col-md-4">
-
-              <map center="map.mapCenter" markers="map.mapMarkers"> </map>
-        </div>
-
-
-          </div>
-
-
       </div>
     </div>
 
 <br><br>
 
-<div class="col-xs-12 col-md-4">
-      <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
 
-      <p>
-        address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }}
-        <!-- {{ experiences.selectedExperience.venue.address.latitude }} {{ -->
-        <!-- experiences.selectedExperience.venue.address.longitude }} -->
-      </p>
+<br><br><br>
 
-      <a href="{{ experiences.selectedExperience.url}}">more info</a>
-
-  </div>
-
-<div id="toggleDescripton" ng-click="experiences.showDescription = !experiences.showDescription"> event info </div>
-    <div ng-show="experiences.showDescription">
+  <div id="experienceDesc">
       {{ experiences.selectedExperience.description.text}}
     </div>
 
+    <div class="col-xs-12 col-md-4">
+          <h4>Venue Info:</h4>
+          <h4>{{ experiences.selectedExperience.venue.name}} <span id="addressInfo"> {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }} </span> </h4>
+          <h6></h6>
+      </div>
+
+
+    <div class="row">
+      <div class="col-xs-12 col-md-4">
+          <map center="map.mapCenter" markers="map.mapMarkers"> </map>
+    </div>
+      </div>
 
 </div>
 

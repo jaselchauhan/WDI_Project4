@@ -60,16 +60,23 @@ self.selectExperience = function (experience) {
 
   location.set(self.selectedExperience.venue.address);
 
-  console.log(weather.greeting());
+  // console.log(weather.greeting());
   weather.getWeather(function(weatherObj) {
 
     self.weatherInfo = weatherObj;
+    self.weatherInfo.tempDay = Math.round(weatherObj.list[0].temp.day - 273.15);
+    self.weatherInfo.tempEve = Math.round(weatherObj.list[0].temp.eve - 273.15);
+
     console.log("weatherData stored in controller variable",self.weatherInfo);
     console.log("lat",self.weatherInfo.city.coord.lat, ":  lng:", self.weatherInfo.city.coord.lon);
   });
 
   $state.go('experience');
 
+}
+
+self.greeting = function () {
+  weather.greeting();
 }
 
 //create a currentexperience service. self.getExperience
