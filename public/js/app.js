@@ -31,13 +31,18 @@ function Router($stateProvider, $urlRouterProvider) {
 
 }
 
-oauthConfig.$inject = ['API_URL2','$authProvider','FACEBOOK_API_KEY', 'GITHUB_API_KEY'];
+oauthConfig.$inject = ['API_URL2','$authProvider','EVENTBRITE_API_KEY', 'GITHUB_API_KEY'];
 
-function oauthConfig(API_URL2, $authProvider, FACEBOOK_API_KEY, GITHUB_API_KEY){
-  $authProvider.facebook({
-    url: API_URL2 + '/auth/facebook',
-    clientId: FACEBOOK_API_KEY
-  })
+function oauthConfig(API_URL2, $authProvider, EVENTBRITE_API_KEY, GITHUB_API_KEY){
+
+  $authProvider.oauth2({
+    name: 'eventbrite',
+    url: API_URL2 + '/auth/eventbrite',
+    clientId: EVENTBRITE_API_KEY,
+    authorizationEndpoint: 'https://www.eventbrite.com/oauth/authorize',
+    redirectUri: location.origin,
+    responseType: 'code'
+  });
 
   $authProvider.github({
     url: API_URL2 + '/auth/github',

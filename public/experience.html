@@ -1,30 +1,17 @@
 <div class="showExperience">
   <div ng-show="experiences.selectedExperience">
-    <h3 id="experienceTitle">{{ experiences.selectedExperience.name.text }}</h3>
+    <div id="experienceTitle">
+    <h3 id="eventName">{{ experiences.selectedExperience.name.text | uppercase }}</h3>
+    <h5 id="eventTime">from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
+</div>
 
-    <div class="row">
       <div class="col-xs-12 col-md-4">
-        <div>
-
-          <map center="map.mapCenter" markers="map.mapMarkers"> </map>
-
-          <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
-
-          <p>
-            address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }} {{ experiences.selectedExperience.venue.address.latitude }} {{
-            experiences.selectedExperience.venue.address.longitude }}
-          </p>
-
-          <h5>from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
-          <a href="{{ experiences.selectedExperience.url}}">more info</a>
-
-        </div>
+        <img class="experiencePic eventPicsSearch" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
       </div>
 
+
       <div class="col-xs-12 col-md-4">
-        <img class="experiencePic" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
-      </div>
-      <div class="col-xs-12 col-md-4">
+
         <div class="weatherResults">
           <!-- <button type="button" ng-click="experiences.getWeather()">click for weather</button> -->
           <h4> lat: {{ experiences.weatherInfo.city.coord.lat }} | lon: {{ experiences.weatherInfo.city.coord.lon }}</h4>
@@ -42,18 +29,39 @@
           <!-- <h6>Daytime temperature: {{ experiences.convertToFahrenheit({ experiences.weather.list[0].temp.day }) }}</h6>
           <h6>converted date: {{ convertToDate({ experiences.weather.list[0].dt })</h6> -->
         </div>
+
+<div id="toggleLocationInfo" class="showLocation" ng-click="experiences.showLocation = !experiences.showLocation"> venue info </div>
+        <div class="row" ng-show="experiences.showLocation">
+          <div class="col-xs-12 col-md-4">
+
+              <map center="map.mapCenter" markers="map.mapMarkers"> </map>
+        </div>
+
+        <div class="col-xs-12 col-md-4">
+              <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
+
+              <p>
+                address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }} {{ experiences.selectedExperience.venue.address.latitude }} {{
+                experiences.selectedExperience.venue.address.longitude }}
+              </p>
+
+              <a href="{{ experiences.selectedExperience.url}}">more info</a>
+
+          </div>
+          </div>
+
+
       </div>
     </div>
 
 <br><br>
 
-
-    <p>
+<div id="toggleDescripton" class="showDesription" ng-click="experiences.showDescription = !experiences.showDescription"> event info </div>
+    <p ng-show="experiences.showDescription">
       {{ experiences.selectedExperience.description.text}}
     </p>
 
 
-  </div>
 </div>
 
 

@@ -1,8 +1,8 @@
 
 module.exports = {
-  facebook: {
-    accessTokenUrl: 'https://graph.facebook.com/v2.5/oauth/access_token',
-    profileUrl: 'https://graph.facebook.com/v2.5/me?fields=id,email,name,picture.width(200).height(200)'
+  eventbrite: {
+    accessTokenUrl: 'https://www.eventbrite.com/oauth/token',
+    profileUrl: 'https://www.eventbriteapi.com/v3/users/me'
   },
   github: {
     accessTokenUrl: 'https://github.com/login/oauth/access_token',

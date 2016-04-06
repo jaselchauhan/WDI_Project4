@@ -4,63 +4,63 @@ var User = require('../models/user');
 var config = require('../config/app');
 var oauth = require('../config/oauth');
 
-function facebook(req, res) {
+
+function eventbrite(req, res) {
+
+  var access_token;
+
   var params = {
     code: req.body.code,
-    client_id: req.body.clientId,
-    client_secret: process.env.FACEBOOK_SECRET_KEY,
-    redirect_uri: config.appUrl + "/"
+    client_secret: process.env.EVENTBRITE_SECRET_KEY,
+    client_id: process.env.EVENTBRITE_API_KEY,
+    grant_type: 'authorization_code'
   };
 
-  // step 1, we make a request to facebook for an access token
-  request
-    .get({
-      url: oauth.facebook.accessTokenUrl,
-      qs: params,
+  request.post({
+    url: oauth.eventbrite.accessTokenUrl,
+    form: params,
+    json: true
+  })
+  .then(function(response) {
+
+    access_token = response.access_token;
+
+    return request({
+      url: oauth.eventbrite.profileUrl,
+      headers: {
+        Authorization: 'Bearer ' + access_token
+      },
       json: true
-    })
-    .then(function(accessToken) {
-      // step 2, we use the access token to get the user's profile data from facebook's api
-      return request.get({
-        url: oauth.facebook.profileUrl,
-        qs: accessToken,
-        json: true
-      });
-    })
-    .then(function(profile) {
-      console.log(profile);
-      // step 3, we try to find a user in our database by their email
-      return User.findOne({ email: profile.email })
-        .then(function(user) {
-          // if we find the user, we set their facebookId and picture to their profile data
-          if(user) {
-            user.facebookId = profile.id;
-            user.picture = user.picture || profile.picture.data.url;
-          }
-          else {
-            // otherwise, we create a new user record with the user's profile data from facebook
-            user = new User({
-              facebookId: profile.id,
-              name: profile.name,
-              picture: profile.picture.data.url,
-              email: profile.email
-            });
-          }
-          // either way, we save the user record
-          return user.save();
-        });
-    })
-    .then(function(user) {
-      // step 4, we create a JWT and send it back to our angular app
-      var payload = { _id: user._id, name: user.name, picture: user.picture };
-      var token = jwt.sign(payload, config.secret, { expiresIn: '24h' });
-      return res.send({ token: token, user: payload });
-    })
-    .catch(function(err) {
-      // we handle any errors here
-      return res.status(500).json({ error: err });
     });
+  })
+  .then(function(profile) {
+    return User.findOne({ eventbriteId: profile.id })
+      .then(function(user) {
+        if(user) {
+          user.picture = user.picture || profile.image_id;
+        }
+        else {
+          user = new User({
+            eventbriteId: profile.id,
+            name: profile.name,
+            picture: profile.image_url
+          });
+        }
+        return user.save();
+      });
+  })
+  .then(function(user) {
+    var payload = { _id: user._id, name: user.name, picture: user.picture };
+    var token = jwt.sign(payload, config.secret, { expiresIn: '24h' });
+    return res.send({ token: token, user: payload, eventbriteAccessToken: access_token });
+  })
+  .catch(function(err) {
+    console.log(err);
+    return res.status(500).send();
+  });
 }
+
+
 
 function github(req, res){
   console.log("github called!");
@@ -117,6 +117,6 @@ function github(req, res){
 }
 
 module.exports = {
-  facebook: facebook,
+  eventbrite: eventbrite,
   github: github
 };

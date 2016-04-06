@@ -38,80 +38,61 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="js/vendor/bootstrap/dist/css/bootstrap.css">
   <link rel="stylesheet" href="js/vendor/angular-material/angular-material.css">
+  <link href='https://fonts.googleapis.com/css?family=Arimo:400,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body ng-app="wdiproject4">
-<section ng-controller="LoginController as main">
-  <div class="container-fluid">
+  <section ng-controller="LoginController as login">
+    <div class="container-fluid">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
-      <!-- <nav class="navbar navbar-default"> -->
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <!--add ng-click to brand to take back home. -->
-          <a class="navbar-brand" href="/">wdi project four <i class="fa fa-globe"></i></a>
+      <nav class="navbar navbar-default navbar-fixed-top">
+        <!-- <nav class="navbar navbar-default"> -->
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <!--add ng-click to brand to take back home. -->
+            <a class="navbar-brand" href="/">wdi project four <i class="fa fa-globe"></i></a>
+          </div>
+          <div ng-show="login.isLoggedIn()">
+            <!-- <ul class="nav navbar-nav navbar-right"> -->
+            <li><a ui-sref-active="active" ui-sref="experiences"> <span id="searchIcon"<i class="fa fa-search"></span></i></a></li>
+            <li>{{ login.currentUser.name }}</li>
+            <a ui-sref-active="active" ui-sref="users"><img id="profilePic" ng-src="{{ login.currentUser.picture }}"></a>
+            <!-- <button class="logout" ng-click="login.logout()"><i class="fa fa-sign-out"></i> Logout</button> -->
+            <li><a src='#' ng-click="login.logout()"> <span id="logoutIcon"><i class="fa fa-sign-out"></span></i></a></li>
+            <!-- </ul> -->
+          </div>
         </div>
-        <div ng-show="main.isLoggedIn()">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a ui-sref-active="active" ui-sref="experiences">experiences <i class="fa fa-search"></i></a></li>
-          <li>{{ main.currentUser.username }}</li>
-          <img id="profilePic" ng-src="{{ main.currentUser.picture }}">
-          <!-- <button class="logout" ng-click="main.logout()"><i class="fa fa-sign-out"></i> Logout</button> -->
-          <li><a src='#' ng-click="main.logout()">logout <i class="fa fa-sign-out"></i></a></li>
-        </ul>
+      </nav>
+
+
+      <div ng-hide="login.isLoggedIn()">
+        <div class="centered">
+
+          <button class="facebook" ng-click="login.authenticate('eventbrite')"><i class="fa fa-facebook-square"></i> Sign in with Eventbrite</button>
+          <button class="github" ng-click='login.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
+        </div>
+
+
       </div>
-      </div>
-    </nav>
 
 
-<div ng-hide="main.isLoggedIn()">
-      <div class="centered">
-
-          <h1>Satellizer</h1>
-          <h3>Oauth for Facebook &amp; Github</h3>
-          <hr>
-          <button class="facebook" ng-click="main.authenticate('facebook')"><i class="fa fa-facebook-square"></i> Sign in with Facebook</button>
-          <button class="github" ng-click='main.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
-          <p>Made with <i class="fa fa-heart"></i> by General Assembly</p>
-        </div>
-
-
-
-          <h2></h2>
-          <hr>
-
-        </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <section ng-controller="UsersController as users">
-      <section ng-controller="ExperiencesController as experiences">
-        <main ui-view></main>
+      <section ng-controller="UsersController as users">
+        <section ng-controller="ExperiencesController as experiences">
+          <main ui-view></main>
+        </section>
       </section>
-    </section>
-  </div>
+    </div>
 
 
-  <!-- <footer class="footer">
+    <!-- <footer class="footer">
   <div class="container">
 powered by <img id='footerlogo' ng-src="../public/img/angularlogo.jpg">
 </div>
 </footer> -->
-  </div>
+    </div>
 
-</section>
+  </section>
 </body>
 
 </html>

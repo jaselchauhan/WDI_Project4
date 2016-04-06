@@ -3,7 +3,7 @@ var usersController = require('../controllers/users');
 var experiencesController = require('../controllers/experiences');
 var authController = require('../controllers/authentication');
 
-router.post('/auth/facebook', authController.facebook);
+router.post('/auth/eventbrite', authController.eventbrite);
 router.post('/auth/github', authController.github);
 
 
