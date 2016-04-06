@@ -10,8 +10,8 @@
 <div class="shaderExperience"></div>
         <div class="experience-info">
           <h3 id="eventName">{{ experiences.selectedExperience.name.text | uppercase }}</h3>
-          <h5 id="eventTime">from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
         </div>
+        <h5 id="eventTime">from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
       </div>
 
 
@@ -59,6 +59,6 @@
     </div>
       </div>
 
-      <h4><a id="buyTickets" href="{{ experiences.selectedExperience.url }}">buy tickets</a></h4>
+      <h4  id="buyTickets"><a href="{{ experiences.selectedExperience.url }}">buy tickets</a></h4>
 
 </div>
