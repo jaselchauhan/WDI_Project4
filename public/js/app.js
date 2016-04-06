@@ -9,12 +9,12 @@ Router.$inject = ['$stateProvider', '$urlRouterProvider'];
 
 function Router($stateProvider, $urlRouterProvider) {
   $stateProvider
-    .state('about', {
-    url: '/about',
-    templateUrl: 'about.html'
+    .state('home', {
+    url: '/',
+    templateUrl: 'home.html'
   })
   .state('experiences', {
-    url: '/',
+    url: '/experiences',
     templateUrl: 'experiences.html'
   })
   .state('users', {

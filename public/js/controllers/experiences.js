@@ -39,8 +39,13 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
   this.selectedExperience = {};
 
   self.getExperiences = function () {
-    // self.queryData.start = new Date(self.queryData.start)
-    // self.queryData.end = new Date(self.queryData.end)
+
+    // console.log("before date format changed",this.queryData);
+    // self.queryData.start = new Date(self.queryData.start).toUTCString();
+    // self.queryData.end = new Date(self.queryData.end).toUTCString();
+
+    console.log("after date format changed", this.queryData);
+
     self.all = [];
     $http
       .post(API_URL, self.queryData)

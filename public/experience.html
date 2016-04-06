@@ -5,8 +5,13 @@
     <h5 id="eventTime">from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
 </div>
 
-      <div class="col-xs-12 col-md-4">
-        <img class="experiencePic eventPicsSearch" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
+      <div class="col-xs-12 col-md-4 experiencePic eventPicSearch" style="background: url({{ experiences.selectedExperience.logo.url }}) ">
+        <!-- <img class="experiencePic eventPicsSearch" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" /> -->
+
+        <div class="experience-info">
+          <h3 id="eventName">{{ experiences.selectedExperience.name.text | uppercase }}</h3>
+          <h5 id="eventTime">from: {{ experiences.selectedExperience.start.local }} to {{ experiences.selectedExperience.end.local }}</h5>
+        </div>
       </div>
 
  <!-- <i ng-click="experiences.showLocation = !experiences.showLocation" class="fa fa-map-marker"></i> -->

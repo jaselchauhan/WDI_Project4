@@ -1,0 +1,12 @@
+
+<section class="HomePage" ng-controller="LoginController as login">
+    <div class="shader"></div>
+    <div class="centered">
+      <div class="shader"></div>
+      <h1>find a festival</h1>
+      <h3>enter text ehre</h3>
+      <button class="facebook" ng-click="login.authenticate('eventbrite')"><i class="fa fa-facebook-square"></i> Sign in with Eventbrite</button>
+      <button ui-sref="experiences" class="github" ng-click='login.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
+    </div>
+  </div>
+</section>

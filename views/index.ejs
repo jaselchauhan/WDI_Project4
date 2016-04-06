@@ -60,22 +60,22 @@
             <li>{{ login.currentUser.name }}</li>
             <a ui-sref-active="active" ui-sref="users"><img id="profilePic" ng-src="{{ login.currentUser.picture }}"></a>
             <!-- <button class="logout" ng-click="login.logout()"><i class="fa fa-sign-out"></i> Logout</button> -->
-            <li><a src='#' ng-click="login.logout()"> <span id="logoutIcon"><i class="fa fa-sign-out"></span></i></a></li>
+            <li><a ui-sref="home" src='#' ng-click="login.logout()"> <span id="logoutIcon"><i class="fa fa-sign-out"></span></i></a></li>
             <!-- </ul> -->
           </div>
         </div>
       </nav>
 
+      {{ login.currentUser.picture }}
 
-      <div ng-hide="login.isLoggedIn()">
+
+      <!-- <div ng-hide="login.isLoggedIn()">
         <div class="centered">
 
           <button class="facebook" ng-click="login.authenticate('eventbrite')"><i class="fa fa-facebook-square"></i> Sign in with Eventbrite</button>
           <button class="github" ng-click='login.authenticate("github")'><i class="fa fa-github-square"></i> Sign in with Github</button>
         </div>
-
-
-      </div>
+      </div> -->
 
 
       <section ng-controller="UsersController as users">

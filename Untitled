@@ -1,0 +1,15 @@
+<div class="showpage-banner" style="background: {{ selectedExperience.image }}">
+  <div class="content">
+    content goes here
+  </div>
+</div>
+
+
+css
+.showpage-banner {
+position: relative;
+}
+
+.content {
+position: absolute;
+}
