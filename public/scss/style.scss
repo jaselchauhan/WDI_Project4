@@ -1,0 +1,423 @@
+body {
+background-color: #fefefd;
+color: #131313;
+font-family: 'Arimo', sans-serif;
+}
+
+.navbar-default{
+  /*opacity: 0.5;*/
+  /*color:red;*/
+}
+
+.navbar-default .navbar-brand{
+  color:#ff5400;
+  font-size: 40px;
+  margin-top: 15px;
+}
+
+.navbar-default .navbar-nav > li > a{
+  color:#ff5400;
+  font-size: 20px;
+  margin-top:20px;
+}
+
+#experienceTitle{
+  text-align: center;
+  font-size: 30px;
+}
+
+.datepickerdemoBasicUsage {
+  /** Demo styles for mdCalendar. */ }
+  .datepickerdemoBasicUsage md-content {
+    padding-bottom: 200px; }
+  .datepickerdemoBasicUsage .validation-messages {
+    font-size: 12px;
+    color: #dd2c00;
+    margin: 10px 0 0 25px; }
+
+.userPic{
+  height:250px;
+  width:250px;
+}
+
+body div h1 {
+  text-align: center;
+}
+
+.google-map{
+  height:250px;
+  width:250px;
+  margin-left: 50px;
+}
+
+.searchForm{
+  text-align: center;
+  background-color: #ffffff;
+  opacity:0.9;
+  height:100px;
+  border-top: 1px solid #dd2c00;
+  border-bottom: 1px solid #dd2c00;
+
+
+}
+
+.form-inline{
+  padding-top:30px;
+}
+
+li{
+  list-style: none;
+}
+
+#map {
+        height: 300px;
+        width: 300px;
+      }
+
+
+
+.about{
+  margin-top: 100px;
+}
+
+.showExperience{
+  margin-top: 100px;
+}
+
+.users{
+  margin-top: 100px;
+}
+
+.searchFormContainer{
+  height:650px;
+  width:100%;
+  border: 1px solid white;
+  margin-top:120px;
+  background-color: white;
+
+}
+
+.searchForm{
+  margin-top: 500px;
+}
+
+.form-control:focus{
+    outline: none !important;
+    border:1px solid #dd2c00 !important;
+    box-shadow: 0 00px 5px #dd2c00 !important;
+}
+
+
+
+.centered {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  width: 350px;
+  height: 400px;
+  border-radius: 3px;
+  -webkit-box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 1px 2px 18px -2px rgba(0, 0, 0, 0.75); }
+
+button {
+  border: 0;
+  background: none;
+  width: 208px;
+  margin: 5px;
+  padding: 15px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+  outline: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: -0.5px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 400; }
+  button.facebook {
+    margin-top: 45px;
+    background: #46629E;
+    border: 1px solid #3e578c; }
+    button.facebook:hover {
+      background: #415b93; }
+  button.github {
+    background: #74C74F;
+    border: 1px solid #65c03d; }
+    button.github:hover {
+      background: #6bc343; }
+  button.logout {
+    margin-top: 45px;
+    background: #c55151; }
+    button.logout:hover {
+      background: #a63838; }
+
+
+
+
+      #profilePic {
+        max-width: 70px;
+        border-radius: 100%;
+        border: 1px solid #dd2c00;
+        margin-top: 15px;
+        margin-right: 20px;
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#searchResults{
+  margin-top:200px;
+}
+
+section.module:last-child {
+  margin-bottom: 0;
+}
+section.module h2 {
+  margin-bottom: 40px;
+  font-family: "Roboto Slab", serif;
+  font-size: 30px;
+}
+section.module p {
+  margin-bottom: 40px;
+  font-size: 16px;
+  font-weight: 300;
+}
+section.module p:last-child {
+  margin-bottom: 0;
+}
+section.module.content {
+  padding: 40px 0;
+}
+section.module.parallax {
+  height: 650px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+section.module.parallax h1 {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 48px;
+  line-height: 600px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+section.module.parallax-1 {
+  background-image: url("../img/pic2.jpg");
+}
+
+.navbar-fixed-top{
+  background-color:#ffffff;
+  border-bottom: 1px solid #dd2c00;
+  height: 100px;
+}
+
+.btn-default{
+  color:#dd2c00;
+  font-weight: bold;
+  border: 1px solid #dd2c00;
+}
+
+.btn-default:hover{
+  background-color:white ;
+
+}
+
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 42px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+
+
+
+@media only screen and (max-width: 640px) {
+
+
+  .navbar-default .navbar-brand{
+    color:#333333;
+    font-size: 2px;
+    margin-top: 15px;
+  }
+
+  .navbar-default .navbar-nav > li > a{
+    font-size: 40px;
+
+  }
+
+
+  .searchForm{
+    margin-top: 250px;
+  }
+
+  #profilePic {
+    max-width: 70px;
+    border-radius: 100%;
+    border: 4px solid #dd2c00;
+  position:absolute;
+
+  left:145px;
+  width: 50%;
+    margin: 0 auto;
+    top: 10px;
+  }
+
+  .navbar-fixed-top{
+    background-color:#333333;
+    border-bottom: 5px solid #dd2c00;
+    height: 100px;
+  }
+
+#logoutIcon{
+  position:absolute;
+  top:20px;
+  right:25px;
+  font-size: 40px;
+  color:#dd2c00;
+}
+
+#searchIcon{
+  position:absolute;
+  top:29px;
+  left:25px;
+  font-size: 38px;
+  color:#dd2c00;
+}
+
+
+
+div.searchForm.center-block{
+  background-color: #333333;
+  height:225px;
+}
+
+div.form-group{
+  width:80%;
+  margin:0 auto;
+  margin-top:5px;
+  margin-bottom:7px;
+}
+
+input.btn.btn-default{
+  margin-top: 10px;
+  background-color: white;
+  color:#dd2c00;
+}
+
+
+.form-control:focus{
+    /*outline: 1px solid red !important;*/
+    border:2px solid #dd2c00 !important;
+    box-shadow: 0 00px 5px #dd2c00 !important;
+}
+
+.searchForm{
+  /*text-align: center;
+  background-color: #ffffff;
+  opacity:0.9;
+  height:100px;*/
+  border-top: 3px solid #dd2c00;
+  border-bottom: 3px solid #dd2c00;
+
+
+}
+
+/*#eventName{
+  margin-top:0px;
+}*/
+
+#experienceTitle{
+  height: 150px;
+  border:4px solid #dd2c00;
+  padding-top: 20px;
+  font-size: 32px;
+  margin-top: 120px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  background-color: #ffffff;
+
+}
+
+#eventTime{
+  color: #dd2c00 !important;
+
+}
+
+.showLocation{
+
+
+}
+
+#toggleLocationInfo{
+  /*border:4px solid #dd2c00;*/
+  text-align: center;
+  color:#dd2c00;
+  margin-bottom: 20px;
+}
+
+#toggleDescription{
+  border:4px solid #dd2c00;
+  text-align: center;
+  color:#dd2c00;
+  margin-bottom: 20px;
+}
+.eventPicsSearch{
+  height:150px;
+  width:98%;
+  margin-left:1%;
+  margin-right:1%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.google-map{
+  height:200px;
+  width:98%;
+  margin-left: 1%;
+  margin-right: 1%;
+  /*margin-left: 50px;*/
+}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
+}
+#searchResultDiv{
+  border:1px solid black
+}
