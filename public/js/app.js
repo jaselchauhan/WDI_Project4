@@ -49,5 +49,9 @@ function oauthConfig(API_URL2, $authProvider, EVENTBRITE_API_KEY, GITHUB_API_KEY
     clientId: GITHUB_API_KEY
   })
 
+  $authProvider.httpInterceptor = function(config) {
+    return !!config.url.match(API_URL2);
+  };
+
   $authProvider.tokenPrefix = null;
 }

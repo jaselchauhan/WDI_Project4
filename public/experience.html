@@ -9,7 +9,7 @@
         <img class="experiencePic eventPicsSearch" ng-src="{{ experiences.selectedExperience.logo.url }}" alt="userpicture" />
       </div>
 
-
+ <i ng-click="experiences.showLocation = !experiences.showLocation" class="fa fa-map-marker"></i>
       <div class="col-xs-12 col-md-4">
 
         <div class="weatherResults">
@@ -30,24 +30,17 @@
           <h6>converted date: {{ convertToDate({ experiences.weather.list[0].dt })</h6> -->
         </div>
 
-<div id="toggleLocationInfo" class="showLocation" ng-click="experiences.showLocation = !experiences.showLocation"> venue info </div>
+
+
+
+
         <div class="row" ng-show="experiences.showLocation">
           <div class="col-xs-12 col-md-4">
 
               <map center="map.mapCenter" markers="map.mapMarkers"> </map>
         </div>
 
-        <div class="col-xs-12 col-md-4">
-              <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
 
-              <p>
-                address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }} {{ experiences.selectedExperience.venue.address.latitude }} {{
-                experiences.selectedExperience.venue.address.longitude }}
-              </p>
-
-              <a href="{{ experiences.selectedExperience.url}}">more info</a>
-
-          </div>
           </div>
 
 
@@ -56,10 +49,23 @@
 
 <br><br>
 
-<div id="toggleDescripton" class="showDesription" ng-click="experiences.showDescription = !experiences.showDescription"> event info </div>
-    <p ng-show="experiences.showDescription">
+<div class="col-xs-12 col-md-4">
+      <h4>venue: {{ experiences.selectedExperience.venue.name}}</h4>
+
+      <p>
+        address: {{ experiences.selectedExperience.venue.address.address1 }} {{ experiences.selectedExperience.venue.address.city }} {{ experiences.selectedExperience.venue.address.postal_code }}
+        <!-- {{ experiences.selectedExperience.venue.address.latitude }} {{ -->
+        <!-- experiences.selectedExperience.venue.address.longitude }} -->
+      </p>
+
+      <a href="{{ experiences.selectedExperience.url}}">more info</a>
+
+  </div>
+
+<div id="toggleDescripton" ng-click="experiences.showDescription = !experiences.showDescription"> event info </div>
+    <div ng-show="experiences.showDescription">
       {{ experiences.selectedExperience.description.text}}
-    </p>
+    </div>
 
 
 </div>
