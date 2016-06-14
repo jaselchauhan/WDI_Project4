@@ -7,6 +7,10 @@
 ###How it Works:
 	
 users log in via Eventbrite or Github oAuth and are able to select a location and date. The app will then return relevant festivals as well as map and weather information
+
+###To install locally:
+	
+Clone this repo to your local machine, then `cd` into the root directory of the repo and `npm install`
 		 
 ###Technologies Used:
 
