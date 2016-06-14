@@ -10,7 +10,7 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
   var self = this;
 
   this.queryData = {
-    //
+
     // "city": "London",
     // "start": "2016-05-05T19:00:00Z",
     // "end": "2016-05-05T19:00:00Z"
@@ -37,7 +37,7 @@ function ExperiencesController($http, $state, API_URL, weather, location) {
         self.all = res.data;
         // console.log("function fired,");
         console.log(res.data);
-        console.log("hi from controller!");
+        console.log("hi from controller!!!!!!!!!!!!!!!!!");
         // console.log(weather.greeting());
 
       })
