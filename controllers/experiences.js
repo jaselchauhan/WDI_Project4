@@ -24,13 +24,14 @@ function experienceQuery(req, res) {
 
 //below url is the where the api call is being made. it works when typed into browser/insomnia manually but doesn't with promises?
 // https://www.eventbriteapi.com/v3/events/search/?expand=venue&q=festival&token=DI3MFVPBGSGO7BGAUBX6&venue.city=London&start_date.range_start=2016-07-07T19:00:00Z&start_date.range_end=2016-08-08T19:00:00Z
-
+// 2016-07-07T19:00:00Z
 //makes the GET request to the eventbrite api. To search for something
 //first look at API for ur2l route to use and search terms then,
 //test the url req'd in Insomnia, and then break down search query into
 //the query string (params in this code), and pass ito the request function.
   request({
-    url: "https://www.eventbriteapi.com/v3/events/search/?expand=venue&q=festival&token=DI3MFVPBGSGO7BGAUBX6&venue.city=London&start_date.range_start=2016-07-07T19:00:00Z&start_date.range_end=2016-08-08T19:00:00Z",
+    // url: "https://www.eventbriteapi.com/v3/events/search/?expand=venue&q=festival&token=DI3MFVPBGSGO7BGAUBX6&venue.city=London&start_date.range_start=2016-07-07T19:00:00Z&start_date.range_end=2016-08-08T19:00:00Z",
+    url: "https://www.eventbriteapi.com/v3/events/search/?expand=venue&q=festival&token=DI3MFVPBGSGO7BGAUBX6&venue.city="+req.body.city+"&start_date.range_start="+req.body.start+"&start_date.range_end="+req.body.end,
     // url: "https://www.eventbriteapi.com/v3/events/search",
     // qs: params,
     // headers: {'User-Agent': 'Request-Promise'},
